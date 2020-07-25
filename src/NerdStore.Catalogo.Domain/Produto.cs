@@ -1,15 +1,20 @@
-﻿using System;
+﻿using NerdStore.Core.DomainObjects;
+using System;
 
 namespace NerdStore.Catalogo.Domain
 {
-    public class Produto
+    public class Produto : Entity, IAggregateRoot
     {
-        public Guid Id { get; set; }
-
+        public string Nome { get; private set; }
+        public string Descricao { get; private set; }
+        public bool Ativo { get; private set; }
+        public decimal Valor { get; private set; }
+        public DateTime DataCadastro { get; private set; }
+        public string Imagem { get; private set; }
+        public int QuantidadeEstoque { get; private set; }
     }     
     
-    public class Categoria
+    public class Categoria : Entity
     {
-        public Guid Id { get; set; }
     }
 }
