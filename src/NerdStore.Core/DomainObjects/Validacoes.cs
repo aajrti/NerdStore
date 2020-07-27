@@ -93,6 +93,14 @@ namespace NerdStore.Core.DomainObjects
             if (valor <= minimo) throw new DomainException(mensagem);
         }
 
-        // parei Validações de entidades 09:25
+        public static void ValidarSeFalso(bool valorBool, string mensagem)
+        {
+            if (valorBool) throw new DomainException(mensagem);
+        }   
+        
+        public static void ValidarSeVerdadeiro(bool valorBool, string mensagem)
+        {
+            if (!valorBool) throw new DomainException(mensagem);
+        }
     }
 }
