@@ -6,12 +6,25 @@ namespace NerdStore.Core.DomainObjects
     {
         public static void ValidarSeIgual(object object1, object object2, string mensagem)
         {
-            if (!object1.Equals(object2)) throw new DomainException(mensagem);
+            if (object1.Equals(object2)) throw new DomainException(mensagem);
         }
 
         public static void ValidarSeDiferente(object object1, object object2, string mensagem)
         {
-            if (object1.Equals(object2)) throw new DomainException(mensagem);
+            if (!object1.Equals(object2)) throw new DomainException(mensagem);
+        }
+
+        public static void ValidarSeIgualZero(int valor, string mensagem)
+        {
+            if (valor == 0) throw new DomainException(mensagem);
+        }
+        public static void ValidarSeIgualZero(decimal valor, string mensagem)
+        {
+            if (valor == 0) throw new DomainException(mensagem);
+        }
+        public static void ValidarSeIgualZero(float valor, string mensagem)
+        {
+            if (valor == 0) throw new DomainException(mensagem);
         }
 
         public static void ValidarCaracteres(string valor, int maximo, string mensagem)
@@ -35,7 +48,7 @@ namespace NerdStore.Core.DomainObjects
 
         public static void ValidarSeVazio(string valor, string mensagem)
         {
-            if (valor == null || valor.Trim().Length == 0) throw new DomainException(mensagem);
+            if (valor == null || valor.Trim().Length == 0 || valor == "") throw new DomainException(mensagem);
         }
 
         public static void ValidarSeNulo(object object1, string mensagem)
@@ -68,29 +81,29 @@ namespace NerdStore.Core.DomainObjects
             if (valor < minimo || valor > maximo) throw new DomainException(mensagem);
         }
                                    
-        public static void ValidarSeMenorIgualMinimo(long valor, long minimo, string mensagem)
+        public static void ValidarSeMenorQue(long valor, long minimo, string mensagem)
         {
-            if (valor <= minimo) throw new DomainException(mensagem);
+            if (valor < minimo) throw new DomainException(mensagem);
         }
 
-        public static void ValidarSeMenorIgualMinimo(double valor, double minimo, string mensagem)
+        public static void ValidarSeMenorQue(double valor, double minimo, string mensagem)
         {
-            if (valor <= minimo) throw new DomainException(mensagem);
+            if (valor < minimo) throw new DomainException(mensagem);
         }
 
-        public static void ValidarSeMenorIgualMinimo(decimal valor, decimal minimo, string mensagem)
+        public static void ValidarSeMenorQue(decimal valor, decimal minimo, string mensagem)
         {
-            if (valor <= minimo) throw new DomainException(mensagem);
+            if (valor < minimo) throw new DomainException(mensagem);
         }
 
-        public static void ValidarSeMenorIgualMinimo(int valor, int minimo, string mensagem)
+        public static void ValidarSeMenorQue(int valor, int minimo, string mensagem)
         {
-            if (valor <= minimo) throw new DomainException(mensagem);
+            if (valor < minimo) throw new DomainException(mensagem);
         }
 
-        public static void ValidarSeMenorIgualMinimo(float valor, float minimo, string mensagem)
+        public static void ValidarSeMenorQue(float valor, float minimo, string mensagem)
         {
-            if (valor <= minimo) throw new DomainException(mensagem);
+            if (valor < minimo) throw new DomainException(mensagem);
         }
 
         public static void ValidarSeFalso(bool valorBool, string mensagem)
