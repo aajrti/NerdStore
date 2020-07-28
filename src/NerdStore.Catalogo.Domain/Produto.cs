@@ -36,7 +36,6 @@ namespace NerdStore.Catalogo.Domain
         public DateTime DataCadastro { get; private set; }
         public string Imagem { get; private set; }
         public int QuantidadeEstoque { get; private set; }
-        public int QuantidadeMinimaEstoque { get; private set; }
         public Dimensoes Dimensoes { get; private set; }
         public Categoria Categoria { get; private set; }
 
@@ -69,11 +68,6 @@ namespace NerdStore.Catalogo.Domain
         public bool PossuiEstoque(int quantidade)
         {
             return QuantidadeEstoque >= quantidade;
-        }
-
-        public bool QuantidadeMinimaAtingida(int quantidade)
-        {
-            return QuantidadeMinimaEstoque > quantidade;
         }
 
         public void Validar()
