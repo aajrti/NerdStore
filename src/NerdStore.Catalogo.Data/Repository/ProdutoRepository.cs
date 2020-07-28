@@ -25,7 +25,7 @@ namespace NerdStore.Catalogo.Data.Repository
             return await _context.Produtos.AsNoTracking().ToListAsync();
         }
 
-        public async Task<Produto> ObterProduto(Guid id)
+        public async Task<Produto> ObterProdutoPorId(Guid id)
         {
             return await _context.Produtos.AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
         }
