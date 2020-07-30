@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 using NerdStore.Catalogo.Application.AutoMapper;
+using NerdStore.Catalogo.Data;
 using NerdStore.WebApp.MVC.Data;
 
 namespace NerdStore.WebApp.MVC
@@ -35,6 +36,9 @@ namespace NerdStore.WebApp.MVC
             });
 
             services.AddDbContext<ApplicationDbContext>(optionsAction: options =>
+                options.UseSqlServer(Configuration.GetConnectionString(name: "DefaultConnection")));
+                 
+            services.AddDbContext<CatalogoContext>(optionsAction: options =>
                 options.UseSqlServer(Configuration.GetConnectionString(name: "DefaultConnection")));
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
