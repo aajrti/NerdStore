@@ -14,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 using NerdStore.Catalogo.Application.AutoMapper;
 using NerdStore.Catalogo.Data;
 using NerdStore.WebApp.MVC.Data;
+using NerdStore.WebApp.MVC.Setup;
 
 namespace NerdStore.WebApp.MVC
 {
@@ -53,6 +54,8 @@ namespace NerdStore.WebApp.MVC
             services.AddAutoMapper(typeof(DomainToViewModelMappingProfile), typeof(ViewModelToDomainMappingProfile));
             
             services.AddMediatR(typeof(Startup));
+
+            services.RegisterServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
