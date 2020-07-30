@@ -4,7 +4,6 @@ using NerdStore.Catalogo.Application.Services;
 using NerdStore.Catalogo.Application.ViewModels;
 
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace NerdStore.WebApp.MVC.Controllers.Admin
@@ -65,8 +64,6 @@ namespace NerdStore.WebApp.MVC.Controllers.Admin
             return RedirectToAction(actionName: "Index");
         }
 
-        //  TODO: Inserindo dados TIME: 06:28 - Validando o funcionamento;
-
         [HttpGet]
         [Route("produtos-atualizar-estoque")]
         public async Task<IActionResult> AtualizarEstoque(Guid id)
@@ -92,7 +89,7 @@ namespace NerdStore.WebApp.MVC.Controllers.Admin
 
         private async Task<ProdutoViewModel> PopularCategorias(ProdutoViewModel produto)
         {
-            produto.Categorias = (IEnumerable<CategoriaViewModel>)await _produtoAppService.ObterCategorias();
+            produto.Categorias = await _produtoAppService.ObterCategorias();
             return produto;
         }
 

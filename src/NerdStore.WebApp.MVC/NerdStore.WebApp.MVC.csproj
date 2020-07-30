@@ -6,6 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Images\camiseta1.jpg" />
+    <None Include="wwwroot\Images\camiseta2.jpg" />
+    <None Include="wwwroot\Images\camiseta3.jpg" />
+    <None Include="wwwroot\Images\camiseta4.jpg" />
+    <None Include="wwwroot\Images\caneca1.jpg" />
+    <None Include="wwwroot\Images\caneca2.jpg" />
+    <None Include="wwwroot\Images\caneca3.jpg" />
+    <None Include="wwwroot\Images\caneca4.jpg" />
+    <None Include="wwwroot\Images\cards.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.6" />

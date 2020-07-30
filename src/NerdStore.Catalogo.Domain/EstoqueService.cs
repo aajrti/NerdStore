@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+
 using NerdStore.Catalogo.Domain.Events;
 using NerdStore.Core.Bus;
 
@@ -20,7 +21,7 @@ namespace NerdStore.Catalogo.Domain
         {
             var produto = await _produtoRepository.ObterProdutoPorId(produtoId);
 
-            if (produto == null) return false;
+            if (produto is null) return false;
 
             if (!produto.PossuiEstoque(quantidade)) return false;
 
@@ -38,9 +39,9 @@ namespace NerdStore.Catalogo.Domain
 
         public async Task<bool> ReporEstoque(Guid produtoId, int quantidade)
         {
-            var produto = await _produtoRepository.ObterProdutoPorId(produtoId);
+            Produto produto = await _produtoRepository.ObterProdutoPorId(produtoId);
 
-            if (produto == null) return false;
+            if (produto is null) return false;
 
             produto.ReporEstoque(quantidade);
 

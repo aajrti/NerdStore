@@ -62,31 +62,27 @@
 </style>
 <div class="container">
 
-    <h1>Administração de Produtos</h1>
-    <hr />
-    <div class="row">
-        <a asp-controller="AdminProdutos" asp-action="NovoProduto" class="btn btn-success right">+ Adicionar Novo</a>
-    </div>
-    <hr />
+    <h1>Vitrine de Produtos</h1>
+    <br />
     <div class="row">
         <!-- BEGIN PRODUCTS -->
         @{
-            foreach (var produto in Model.OrderBy(p => p.CategoriaId))
+            foreach (var produto in Model.OrderBy(p=>p.CategoriaId))
             {
-                <div class="col-md-3 col-sm-6">
-                    <span class="thumbnail">
-                        <img width="100" height="100" src="~/Images/@produto.Imagem" />
-                        <h4>@produto.Nome</h4>
-                        <p>@produto.QuantidadeEstoque em estoque</p>
-                        <p>@produto.Descricao</p>
-                        <p class="price">@produto.Valor.ToString("C")</p>
-                        <hr class="line">
-                        <div class="row">
-                            <a asp-controller="AdminProdutos" asp-action="AtualizarProduto" asp-route-id="@produto.Id" class="btn btn-success right">Editar</a> &nbsp;
-                            <a asp-controller="AdminProdutos" asp-action="AtualizarEstoque" asp-route-id="@produto.Id" class="btn btn-info right">Estoque</a>
+            <div class="col-md-3 col-sm-6">
+                <span class="thumbnail">
+                    <a asp-controller="Vitrine" asp-action="ProdutoDetalhe" asp-route-id="@produto.Id"><img width="200" height="200" src="~/Images/@produto.Imagem" /></a>
+                    <h4>@produto.Nome</h4>
+                    <p>Apenas @produto.QuantidadeEstoque em estoque!</p>
+                    <p>@produto.Descricao</p>
+                    <hr class="line">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <p class="price">@produto.Valor.ToString("C")</p>
                         </div>
-                    </span>
-                </div>
+                    </div>
+                </span>
+            </div>
             }
         }
 
