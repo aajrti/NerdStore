@@ -1,4 +1,8 @@
-﻿using NerdStore.Core.DomainObjects;
+﻿
+
+using FluentValidation.Results;
+
+using NerdStore.Core.DomainObjects;
 
 using System;
 using System.Collections.Generic;
@@ -20,6 +24,11 @@ namespace NerdStore.Vendas.Domain
 
         // EF Rel.
         public ICollection<Pedido> Pedidos { get; set; }
+
+        internal ValidationResult ValidarSeAplicavel()
+        {
+            return new VoucherAplicavelValidation().Validate(this);
+        }
     }
 
 
